@@ -22,23 +22,61 @@
  * console.logging the function's return value
  */
 
+function analyzeColor(colorName) {
+    if (colorName.toLocaleLowerCase() === "blue") {
+        return `${colorName} is the color of the ocean`;
+    } else if (colorName.toLocaleLowerCase() === "red") {
+        return `${colorName} is the color of fire trucks`;
+    } else if (colorName.toLocaleLowerCase() === "yellow") {
+        return `${colorName} is the color of bananas`;
+    } else if (colorName.toLocaleLowerCase() === "green") {
+        return `${colorName} is the color of grass`;
+    } else {
+        return `I don't know anything about the color ${colorName}`
+    }
+}
+// console.log(analyzeColor("blue"));
+// console.log(analyzeColor("black"));
+
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
 // - `randomColor`: contains a single random color value from the list (this
 //                  will contain a different color every time the page loads)
-var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
-var randomColor = colors[Math.floor(Math.random() * colors.length)];
+const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+let randomColor = colors[Math.floor(Math.random() * colors.length)];
 /**
  * TODO:
  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
  * You should see a different message every time you refresh the page
  */
 
+// console.log(analyzeColor(randomColor));
+
 /**
  * TODO:
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
+
+switch (randomColor) {
+    case "blue":
+        console.log(`${randomColor} is the color of the ocean`);
+        break;
+    case "yellow":
+        console.log(`${randomColor} is the color of bananas`);
+        break;
+    case "red":
+        console.log(`${randomColor} is the color of fire trucks`);
+        break;
+    case "green":
+        console.log(`${randomColor} is the color of the grass`);
+        break;
+    case "black":
+        console.log(`${randomColor} is the color of the universe`);
+        break;
+    default:
+        console.log(`I don't know anything about the color ${randomColor}`);
+}
 
 /**
  * TODO:
@@ -46,6 +84,9 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+
+const userInputColor = prompt("What is your favorite color?");
+alert(analyzeColor(userInputColor));
 
 /* ########################################################################## */
 
