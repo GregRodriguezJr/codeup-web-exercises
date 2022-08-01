@@ -112,17 +112,17 @@ alert(analyzeColor(userInputColor));
 
 function calculateTotal (luckyNum, totalAmount) {
     if (luckyNum === 1) {
-        return `Lucky Number:${luckyNum}, Discounted Price:$${totalAmount - (totalAmount * .10)}`;
+        return `Discounted Price:$ ${totalAmount - (totalAmount * .10)}`;
     } else if (luckyNum === 2) {
-        return `Lucky Number:${luckyNum}, Discounted Price:$${totalAmount - (totalAmount * .25)}`;
+        return `Discounted Price:$ ${totalAmount - (totalAmount * .25)}`;
     } else if (luckyNum === 3) {
-        return `Lucky Number:${luckyNum}, Discounted Price:$${totalAmount - (totalAmount * .35)}`;
+        return `Discounted Price:$ ${totalAmount - (totalAmount * .35)}`;
     } else if (luckyNum === 4) {
-        return `Lucky Number:${luckyNum}, Discounted Price:$${totalAmount - (totalAmount * .50)}`;
+        return `Discounted Price:$ ${totalAmount - (totalAmount * .50)}`;
     } else if (luckyNum === 5) {
-        return `Lucky Number:${luckyNum}, Discounted Price:$0`;
+        return `Discounted Price:$ 0`;
     } else {
-        return `Lucky Number:${luckyNum}, Discounted Price:$${totalAmount}`;
+        return `Discounted Price:$ ${totalAmount}`;
     }
 }
 
