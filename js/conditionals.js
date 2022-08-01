@@ -110,6 +110,26 @@ alert(analyzeColor(userInputColor));
  * return value.
  */
 
+function calculateTotal (luckyNum, totalAmount) {
+    if (luckyNum === 1) {
+        return `Lucky Number:${luckyNum}, Discounted Price:$${totalAmount - (totalAmount * .10)}`;
+    } else if (luckyNum === 2) {
+        return `Lucky Number:${luckyNum}, Discounted Price:$${totalAmount - (totalAmount * .25)}`;
+    } else if (luckyNum === 3) {
+        return `Lucky Number:${luckyNum}, Discounted Price:$${totalAmount - (totalAmount * .35)}`;
+    } else if (luckyNum === 4) {
+        return `Lucky Number:${luckyNum}, Discounted Price:$${totalAmount - (totalAmount * .50)}`;
+    } else if (luckyNum === 5) {
+        return `Lucky Number:${luckyNum}, Discounted Price:$0`;
+    } else {
+        return `Lucky Number:${luckyNum}, Discounted Price:$${totalAmount}`;
+    }
+}
+
+console.log(calculateTotal(0, 100));
+console.log(calculateTotal(4, 100));
+console.log(calculateTotal(5, 100));
+
 /**
  * TODO:
  * Uncomment the line below to generate a random number between 0 and 5.
