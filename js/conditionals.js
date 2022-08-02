@@ -51,7 +51,7 @@ let randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 
-// console.log(analyzeColor(randomColor));
+console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
@@ -84,7 +84,7 @@ switch (randomColor) {
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
-
+//
 const userInputColor = prompt("What is your favorite color?");
 alert(analyzeColor(userInputColor));
 
@@ -139,7 +139,11 @@ console.log(calculateTotal(5, 100));
  * price before the discount was, and what their price after the discount is.
  */
 // Generate a random number between 0 and 6
-// var luckyNumber = Math.floor(Math.random() * 6);
+
+var luckyNumber = Math.floor(Math.random() * 6);
+let userTotalBill = prompt("What is your total bill?");
+let discountPrice = calculateTotal(luckyNumber, userTotalBill);
+alert(`Your lucky number is: ${luckyNumber}, Original price:$ ${userTotalBill}, ${discountPrice}`);
 
 /**
  * TODO:
@@ -159,3 +163,21 @@ console.log(calculateTotal(5, 100));
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
+// Prompt user for input and check if a number or string
+
+    let confirmed = confirm("Would you like to enter a number?");
+    if (confirmed) {
+        let userInput = parseInt(prompt( "Please enter a number."));
+        if (isNaN(userInput)) {
+            alert("Not a number, try again.");
+        } else {
+            alertUser(userInput);
+        }
+    }
+
+function alertUser (userInput) {
+    userInput % 2 === 0 ? alert("The number you entered is even.") : alert("The number you entered is odd.");
+    alert(userInput + 100);
+    userInput < 0 ? alert("The number you entered is negative") : alert("The number you entered is positive");
+}
