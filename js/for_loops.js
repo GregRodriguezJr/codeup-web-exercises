@@ -1,4 +1,4 @@
-// For Loops
+//For Loops
 
 function showMultiplicationTable(num) {
     for(let i = 1; i < 11; i++) {
@@ -27,3 +27,10 @@ function pyramid() {
     }
 }
 pyramid()
+
+function countdown() {
+    for (let i = 100; i >= 5; i -= 5){
+        console.log(i);
+    }
+}
+countdown()
