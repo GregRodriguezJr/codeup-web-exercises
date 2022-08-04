@@ -1,8 +1,8 @@
 (function(){
     "use strict";
 
-    // var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
-    // var planetsArray;
+    var planetsString = "Mercury|Venus|Earth|Mars|Jupiter|Saturn|Uranus|Neptune";
+    var planetsArray;
 
     /**
      * TODO:
@@ -11,7 +11,8 @@
      * console.log planetsArray to check your work
      */
 
-    // console.log(planetsArray);
+    planetsArray = planetsString.split('|');
+    console.log(typeof planetsArray, planetsArray);
 
     /**
      * TODO:
@@ -24,4 +25,15 @@
      * string, and <li> tags around each planet.
      */
 
+    console.log(planetsArray.join(' <br> '));
+    
+    let newArray = [];
+    planetsArray.forEach(planet => {
+        newArray.push(`<li>${planet}</li>`);
+    })
+
+    newArray.push(`<ul>`);
+    newArray.unshift(`</ul>`);    
+    let newString = newArray.join(' ')
+    console.log(typeof newString, newString);
 })();
