@@ -17,8 +17,8 @@
         lastName: "Bond"
     }
 
-    // console.log(person.firstName);
-    // console.log(person.lastName);
+    console.log(person.firstName);
+    console.log(person.lastName);
 
     /**
      * TODO:
@@ -147,7 +147,9 @@
 
     for (let i = 0; i < books.length; i++) {
         const book = books[i];
-        console.log(book);
+        console.log(`Book # ${i + 1}`);
+        console.log(book.title);
+        console.log(`${book.author.firstName} ${book.author.lastName}`);
     }
 
     /**
