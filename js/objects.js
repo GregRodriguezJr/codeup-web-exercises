@@ -12,6 +12,14 @@
      *  > console.log(person.lastName) // "Sanchez"
      */
 
+    let person = {
+        firstName: "James",
+        lastName: "Bond"
+    }
+
+    // console.log(person.firstName);
+    // console.log(person.lastName);
+
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -21,6 +29,12 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+
+    person.sayHello = function () {
+        return `Hi! ${person.firstName} ${person.lastName}`
+    }
+
+    // console.log(person.sayHello());
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -36,11 +50,20 @@
      * and console.log the relevant messages for each person
      */
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+
+    var shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
+
+    // shoppers.forEach(shopper => {
+    //     if (shopper.amount > 200) {
+    //         console.log(`${shopper.name} needs to pay $${shopper.amount - (shopper.amount * .12)}`);
+    //     } else if (shopper.amount < 200) {
+    //         console.log(`${shopper.name} needs to pay $${shopper.amount}`);
+    //     }
+    // })
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -54,6 +77,48 @@
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+
+    let books = [
+        {
+            title: "Atomic Habits",
+            author: {
+                firstName: "James",
+                lastName: "Clear"
+            }
+        },
+        {
+            title: "Never Split The Difference",
+            author: {
+                firstName: "Chris",
+                lastName: "Voss"
+            }
+        },
+        {
+            title: "Software Developers Career Guide",
+            author: {
+                firstName: "John",
+                lastName: "Sonmez"
+            }
+        },
+        {
+            title: "Tools of Titans",
+            author: {
+                firstName: "Tim",
+                lastName: "Ferriss"
+            }
+        },
+        {
+            title: "Reminiscences of a Stock Operator",
+            author: {
+                firstName: "Edwin",
+                lastName: "Lefevre"
+            }
+        },
+    ]
+
+/*     console.log(books[0].title)
+    console.log(books[0].author.firstName)
+    console.log(books[0].author.lastName) */
 
     /**
      * TODO:
@@ -79,6 +144,11 @@
      *      ---
      *      ...
      */
+
+    for (let i = 0; i < books.length; i++) {
+        const book = books[i];
+        console.log(book);
+    }
 
     /**
      * Bonus:
