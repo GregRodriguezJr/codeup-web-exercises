@@ -31,10 +31,10 @@
      */
 
     person.sayHello = function () {
-        return `Hi! ${person.firstName} ${person.lastName}`
-    }
+        return `Hi! ${person.firstName} ${person.lastName}!`
+    };
 
-    // console.log(person.sayHello());
+    console.log(person.sayHello());
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -57,13 +57,13 @@
         {name: 'George', amount: 320}
     ];
 
-    // shoppers.forEach(shopper => {
-    //     if (shopper.amount > 200) {
-    //         console.log(`${shopper.name} needs to pay $${shopper.amount - (shopper.amount * .12)}`);
-    //     } else if (shopper.amount < 200) {
-    //         console.log(`${shopper.name} needs to pay $${shopper.amount}`);
-    //     }
-    // })
+    shoppers.forEach(shopper => {
+        if (shopper.amount > 200) {
+            console.log(`${shopper.name} needs to pay $${shopper.amount - (shopper.amount * .12)}, after discount.`);
+        } else {
+            console.log(`${shopper.name} needs to pay $${shopper.amount}, no discount applied.`);
+        }
+    });
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -114,11 +114,11 @@
                 lastName: "Lefevre"
             }
         },
-    ]
+    ];
 
-/*     console.log(books[0].title)
-    console.log(books[0].author.firstName)
-    console.log(books[0].author.lastName) */
+    console.log(books[0].title);
+    console.log(books[0].author.firstName);
+    console.log(books[0].author.lastName);
 
     /**
      * TODO:
@@ -150,7 +150,8 @@
         console.log(`Book # ${i + 1}`);
         console.log(book.title);
         console.log(`${book.author.firstName} ${book.author.lastName}`);
-    }
+        console.log(`---`);
+    };
 
     /**
      * Bonus:
@@ -163,4 +164,26 @@
      *   `showBookInfo` function.
      */
 
+    let bonusBooks = [];
+    function createBook(title, author) {
+        let book = {
+            title: title,
+            author: author
+        }
+        bonusBooks.push(book);
+        return book;
+    }
+    createBook("myNewTitle", "Greg");
+    console.log(bonusBooks);
+
+    function showBookInfo(book) {
+        console.log(book.title);
+        console.log(`${book.author.firstName} ${book.author.lastName}`);
+        console.log(`---`);
+    };
+
+    books.forEach((book, index) => {
+        console.log(`Book # ${index + 1}`);
+        showBookInfo(book);
+    });
 })();
