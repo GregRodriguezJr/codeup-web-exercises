@@ -14,6 +14,9 @@
     "use strict";
 
     var detonationTimer = 5;
+    let newInterval;
+    let timer = 1000;
+    const messageEl = document.getElementById("message");
 
     // TODO: This function needs to be called once every second
     function updateTimer() {
@@ -23,14 +26,16 @@
         } else if (detonationTimer > 0) {
             document.getElementById('timer').innerHTML = detonationTimer;
         }
-
         detonationTimer--;
     }
+
+    newInterval = setInterval(updateTimer, timer);
 
     // TODO: When this function runs, it needs to
     // cancel the interval/timeout for updateTimer()
     function defuseTheBOM() {
-
+        clearInterval(newInterval);
+        messageEl.textContent = "Awesome...You defused the BOM!";
     }
 
     // Don't modify anything below this line!
