@@ -6,6 +6,7 @@ function testRunner() {
     console.log("Passed 'returns string message': " + getCarTelemetry_GivenUndefinedMileage_ReturnsStringMessage());
     console.log("Passed 'return string message for non-numeric': " + getCarTelemetry_GivenNonnumeric_ReturnsStringMessage());
     console.log("Passed 'returns string message for boolean': " + getCarTelemetry_GivenNonnumericBoolean_ReturnsStringMessage());
+    console.log("Passed 'returns mileage with one decimal place': " + getCarTelemetry_GivenNumeric_returnsMileageOneDecimalPlace());
     // TODO: 2. place logging statement for decimal test here
 }
 
@@ -71,9 +72,25 @@ function getCarTelemetry_GivenNonnumericBoolean_ReturnsStringMessage(){
 
 // AC-4: given a numeric with more than one decimal place, returns mileage with only one decimal place (ie: 6853.5234 -> 6853.5)
 // TODO: 1. write test for decimal place here
+function getCarTelemetry_GivenNumeric_returnsMileageOneDecimalPlace() {
+    // Arrange
+    const car = {
+        mileage: 6853.5234
+    }
+    const newMileage = 6853.5234.toFixed(1);
+
+    // Act
+    // Execute testable code and store results as needed
+    const inputMileage = getCarTelemetry(car);
+
+    // Assert
+    // Test the actual output of code against the expected output
+    console.log(inputMileage, newMileage)
+    return inputMileage === newMileage;
+}
 
 // ACTUAL CODE
 function getCarTelemetry(carObj) {
     // TODO: 3. modify code for decimal place handling here
-    return parseInt(carObj.mileage) ? carObj.mileage : "No mileage provided...";
+    return parseInt(carObj.mileage) ? carObj.mileage.toFixed(1) : "No mileage provided...";
 }
