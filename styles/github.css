@@ -4,3 +4,32 @@ body {
     box-sizing: border-box;
 }
 
+/* Navigation */
+
+nav {
+    background-color: #0d1117;
+    padding: .5em;
+    display: flex;
+    align-items: center;
+}
+
+.nav-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.nav-list li a {
+    padding: .5em;
+    color: #fff;
+    text-decoration: none;
+}
+.nav-list li a:hover {
+    opacity: 0.6;
+}
+
+.fa-github {
+    color: #fff;
+    font-size: 1.75rem;
+    padding-left: .75em;
+}
