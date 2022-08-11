@@ -9,7 +9,7 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-/* Header */
+/* Header Section */
 
 header {
     padding: 1.5em;
@@ -45,3 +45,5 @@ section {
     max-width: 500px;
     border-radius: 1em;
 }
+
+/* Our Products Section */
