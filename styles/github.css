@@ -1,29 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+/* General */
+
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+nav .nav-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav .nav-list li {
+    padding: 0.5em 0.75em;
+}
+
+img {
+    width: 100%;
 }
 
 /* Navigation */
 
-nav {
+.primary-nav {
     background-color: #0d1117;
     padding: .5em;
     display: flex;
     align-items: center;
 }
 
-.nav-list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .nav-list li a {
-    padding: .5em;
     color: #fff;
     text-decoration: none;
 }
+
 .nav-list li a:hover {
     opacity: 0.6;
 }
@@ -32,4 +45,39 @@ nav {
     color: #fff;
     font-size: 1.75rem;
     padding-left: .75em;
+}
+
+/* Secondary Navigation */
+
+.secondary-nav-section {
+    background-color: #f6f8fa;
+}
+
+.secondary-nav .nav-list li {
+    cursor: pointer;
+}
+
+.secondary-nav .nav-list li:hover {
+    background-color: #fff;
+    border-top: solid orange 3px;
+    font-weight: bold;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    max-width: 85px;
+    padding: .75em;
+}
+
+.logo h1 {
+    font-size: 2rem;
+}
+
+span {
+    background-color: #dedede;
+    border-radius: 40%;
+    padding: 0 .40em;
+    font-size: .75rem;
+    font-weight: bolder;
 }
