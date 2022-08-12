@@ -51,6 +51,7 @@ img {
 
 .secondary-nav-section {
     background-color: #f6f8fa;
+    border-bottom: solid #dedede;
 }
 
 .secondary-nav .nav-list li {
@@ -81,3 +82,33 @@ span {
     font-size: .75rem;
     font-weight: bolder;
 }
+
+/* Teams Section */
+
+.teams-container {
+    margin: 2em;
+    border: solid #dedede 1px;
+    border-bottom: none;
+    min-width: 80%;
+    border-radius: 5px;
+}
+
+.teams-container h3 {
+    background-color: #f6f8fa;
+    border-bottom: solid #dedede 1px;
+    padding: .5em;
+    margin-top: 0;
+}
+
+.table .profile-img {
+    max-width: 100px;
+}
+
+.table {
+    width:100%;
+}
+
+.table td {
+    border-bottom: solid #dedede 1px;
+}
+
