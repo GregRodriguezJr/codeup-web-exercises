@@ -13,8 +13,15 @@ body, html {
     --text-success-color: darkgreen;
     --bg-warning-color: lightyellow;
     --text-warning-color: darkorange;
-    --bg-error-color: lightcoral;
+    --bg-error-color: lightpink;
     --text-error-color: darkred;
+}
+
+.message {
+    padding: .5em;
+    margin: .5em;
+    border-radius: 5px;
+    border: solid 1px lightgray;
 }
 
 .message-info {
