@@ -5,3 +5,34 @@ body, html {
     margin: 0;
     font-family: Arial, Ubuntu, sans-serif;
 }
+
+:root {
+    --bg-info-color: lightblue;
+    --text-info-color: darkblue;
+    --bg-success-color: lightgreen;
+    --text-success-color: darkgreen;
+    --bg-warning-color: lightyellow;
+    --text-warning-color: darkorange;
+    --bg-error-color: lightcoral;
+    --text-error-color: darkred;
+}
+
+.message-info {
+    background-color: var(--bg-info-color);
+    color: var(--text-info-color);
+}
+
+.message-success {
+    background-color: var(--bg-success-color);
+    color: var(--text-success-color);
+}
+
+.message-warning {
+    background-color: var(--bg-warning-color);
+    color: var(--text-warning-color);
+}
+
+.message-error {
+    background-color: var(--bg-error-color);
+    color: var(--text-error-color);
+}
