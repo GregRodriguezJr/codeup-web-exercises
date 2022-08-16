@@ -19,6 +19,31 @@ body, html {
     font-family: Arial, Ubuntu, sans-serif;
 }
 
+/* Media */
+
+.container {
+    padding: 2em 0;
+}
+
+.media {
+    width: 100%;
+    background-color: var(--light-bg);
+    border-bottom: 1px solid var(--separator-color);
+    padding: .5em;
+    overflow: auto;
+}
+
+.media-image {
+    max-width: 50px;
+    margin: 1.33em;
+    float: left;
+}
+
+.media-body {
+    float: left;
+    width: calc(100% - 100px);
+}
+
 /* Header */
 
 header {
@@ -45,6 +70,15 @@ a {
 .profile-form {
     float: right;
     line-height: 80px;
+}
+
+.profile-items {
+    list-style: none;
+    padding: 0;
+}
+
+.profile-entry {
+    margin: .5em 0;
 }
 
 .btn {
@@ -76,6 +110,7 @@ a {
     background: var(--light-bg);
     width: 100%;
     position: fixed;
+    z-index: 1000;
 }
 
 .nav {
@@ -99,8 +134,30 @@ a {
     color: var(--link-color);
 }
 
-
+/* Profile Details */
 
 .text-muted {
     color: var(--main-link-color);
+}
+
+.profile-details {
+    float: left;
+    margin: 0 .5em;
+    width: calc(25% - 1em);
+}
+
+/* Timeline */
+
+.timeline {
+    float: left;
+    margin: 0 .5em;
+    width: calc(50% - 1em)
+}
+
+/* Who to Follow */
+
+.who-to-follow {
+    float: left;
+    margin: 0 .5em;
+    width: calc(25% - 1em);
 }
