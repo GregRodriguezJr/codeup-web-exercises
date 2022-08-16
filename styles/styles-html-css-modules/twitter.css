@@ -25,14 +25,24 @@ header {
 a {
     color: var(--link-color);
 }
+
 .top-nav {
     background: var(--light-bg);
+    width: 100%;
+    position: fixed;
 }
+
 .nav {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
+
+.nav-item {
+ display: inline-block;
+ padding: 1.5em;
+}
+
 .nav-link {
     color: var(--main-link-color);
     font-weight: bold;
