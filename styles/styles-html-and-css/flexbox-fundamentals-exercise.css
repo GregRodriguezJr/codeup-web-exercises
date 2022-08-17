@@ -19,12 +19,6 @@ h2, h3 {
     width: 80%;
 }
 
-.green-box {
-    background: green;
-    height: 1em;
-    width: 2em;
-}
-
 .border {border: 2px solid black;}
 
 .card {
@@ -38,15 +32,7 @@ h2, h3 {
 
 section {
     /* enter needed declarations here */
-}
-
-section:nth-of-type(1) {
-    height: 3em;
-    background: lightgreen;
-    /* enter needed declarations here */
-}
-section:nth-of-type(1) div:last-child {
-    /* enter needed declarations here */
+    display: flex;
 }
 
 .purple-box {
@@ -122,3 +108,28 @@ section:nth-of-type(6) {
 .grey-box:nth-of-type(odd) {
     height: 4em;
 }
+
+
+/* Green Boxes */
+
+.green-box {
+    background: green;
+    height: 1em;
+    width: 2em;
+}
+
+section:nth-of-type(1) {
+    height: 3em;
+    background: lightgreen;
+    /* enter needed declarations here */
+    justify-content: space-between;
+    align-items: center;
+}
+
+section:nth-of-type(1) div:last-child {
+    /* enter needed declarations here */
+    align-self: flex-start;
+}
+
+/* Pink Boxes */
+

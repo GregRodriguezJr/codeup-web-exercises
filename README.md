@@ -5,6 +5,6 @@
 A collection of exercises, webpages, and test-driven development.     
 
 ## Modules
-* ### JavaScript 1
-* ### HTML and CSS
+*  JavaScript 1
+*  HTML and CSS
 
