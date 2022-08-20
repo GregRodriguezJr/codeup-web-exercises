@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../../styles/styles-html-and-css/custom.css">
 </head>
 <body>
+    <!-- Main Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Pizza World</a>
@@ -36,29 +37,89 @@
             </div>
         </div>
     </nav>
+    <!-- Main Content -->
     <main class="container">
+        <!-- Jumbotron Image with banner -->
         <div class="jumbotron">
             <div class="jumbotron-banner bg-light">
                 <h2>Welcome To Pizza World!</h2>
             </div>
         </div>
         <h2>Build your own pizza!</h2>
+        <!-- Secondary Navigation Buttons-->
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Home</button>
-                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</button>
-                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</button>
+                <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true"><span class="badge bg-secondary">1</span> Size and Crust</button>
+                <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false"><span class="badge bg-secondary">2</span> Cheese and sauce</button>
+                <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false"><span class="badge bg-secondary">3</span> Toppings</button>
             </div>
         </nav>
+        <!-- Card Sections -->
         <div class="tab-content" id="nav-tabContent">
             <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-            test 1
+                <!-- Size and crust section -->
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        Choose Size and Crust
+                    </div>
+                    <div class="card-body">
+                        <div class="card">
+                            <div class="card-header">Hand Tossed</div>
+                            <ul class="list-group">
+                                <li class="list-group-item border-0 border-bottom">Garlic seasoned crust with a rich, buttery taste.</li>
+                                <li class="list-group-item border-0 border-bottom">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                          Small (10")
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item border-0">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                          Medium (12")
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card">
+                            <div class="card-header">Crispy Thin</div>
+                            <ul class="list-group">
+                                <li class="list-group-item border-0 border-bottom">Thin enough for optimum crispy to crunchy ratio.</li>
+                                <li class="list-group-item border-0 border-bottom">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                          Medium (12")
+                                        </label>
+                                    </div>
+                                </li>
+                                <li class="list-group-item border-0">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                        <label class="form-check-label" for="flexRadioDefault1">
+                                          Large (14")
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-footer text-end">
+                        Card footer
+                    </div>
+                </div>
             </div>
             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-            test 2
+            
             </div>
             <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
-            test 3
+            
             </div>
         </div>
     </main>
