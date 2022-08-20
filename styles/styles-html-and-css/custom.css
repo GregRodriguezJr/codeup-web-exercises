@@ -1,0 +1,14 @@
+.jumbotron {
+    background-image: url(../../images/order-pizza-images/pizza.png);
+    height: 346px;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.jumbotron-banner {
+    width: 100%;
+    text-align: center;
+    opacity: 0.7;
+}
