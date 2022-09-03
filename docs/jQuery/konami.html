@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konami Code</title>
+</head>
+<body>
+    <h1>Konami Code</h1>
+
+    <!-- <script src="/js/jquery.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        "use strict";
+        
+        const codeArray = [38,38,40,40,37,39,37,39,66,65,13];
+        let counter = 0;
+
+        $(document).keyup(function(event){
+            // Assigning keycode to a variable
+            let userInput = event.keyCode;
+            // If key isn't in the pattern or isn't current pattern then reset
+            if(codeArray.indexOf(userInput) < 0 || userInput !== codeArray[counter]) {
+                counter = 0;
+                return;
+            }
+            // Update how much of the pattern is complete
+	        counter++;
+            // Pattern complete fire a window alert
+            if(counter === 11) {
+                alert("You have added 30 lives!")
+            }
+        });
+    </script>
+</body>
+</html>
