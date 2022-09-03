@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa&display=swap');
+
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  body {
+    font-family: 'Changa', sans-serif;
+    color: #fff;
+    text-align: center;
+    background-image: url(../../images/arcade.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/jQuery/konami-arcade.jpg);
+    background-size: cover;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
