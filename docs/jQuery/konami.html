@@ -9,16 +9,25 @@
 </head>
 <body>
     <h1>Konami Code</h1>
+    <h2>Use keyboard to enter your code!</h2>
+    <div class="container">
+        <div class="input-display" id="input-display"></div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script>
         "use strict";
-        
+
+        let inputDisplayEl = document.getElementById('input-display');
         const codeArray = [38,38,40,40,37,39,37,39,66,65,13];
         let counter = 0;
 
         $(document).keyup(function(event){
             // Assigning keycode to a variable
             let userInput = event.keyCode;
+            
+            // Display input to the DOM
+            inputDisplayEl.innerHTML += `<h3>${userInput}</h3>`
+
             // If key isn't in the pattern or isn't current pattern then reset
             if(codeArray.indexOf(userInput) < 0 || userInput !== codeArray[counter]) {
                 counter = 0;
@@ -28,7 +37,8 @@
 	        counter++;
             // Pattern complete fire a window alert
             if(counter === 11) {
-                alert("You have added 30 lives!")
+                alert("You have added 30 lives!");
+                location.reload();
             }
         });
     </script>

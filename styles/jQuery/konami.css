@@ -2,20 +2,36 @@
 
 html {
     box-sizing: border-box;
-  }
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
+}
 
-  body {
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
     font-family: 'Changa', sans-serif;
     color: #fff;
     text-align: center;
     background-image: url(../../images/arcade.jpg);
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../../images/jQuery/konami-arcade.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../../images/jQuery/konami\-arcade.jpg);
     background-size: cover;
-  }
+}
 
-  h1 {
+h1 {
     font-size: 3rem;
-  }
+}
+
+h3 {
+    margin: 1em;
+}
+
+.container {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.input-display {
+    display: flex;
+    flex-wrap: wrap;
+}
