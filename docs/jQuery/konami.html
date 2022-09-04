@@ -14,27 +14,34 @@
         <div class="input-display" id="input-display"></div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="../../js/jQuery/confetti.js"></script>
     <script>
         "use strict";
 
-        let inputDisplayEl = document.getElementById('input-display');
+        const inputDisplayEl = document.getElementById('input-display');
         const codeArray = [38,38,40,40,37,39,37,39,66,65,13];
+        const redCircleImg = "../../images/jQuery/konami-red-x.png";
+        const greenCircleImg = "../../images/jQuery/konami-checkmark.png"
         let counter = 0;
+
+        // Event Listener
 
         $(document).keyup(function(event){
             // Assigning keycode to a variable
             let userInput = event.keyCode;
             
-            // Display input to the DOM
-            inputDisplayEl.innerHTML += `<h3>${userInput}</h3>`
-
-            // If key isn't in the pattern or isn't current pattern then reset
+            // If key isn't in the pattern or isn't current pattern then reset counter
             if(codeArray.indexOf(userInput) < 0 || userInput !== codeArray[counter]) {
                 counter = 0;
-                return;
+                // Display input to the DOM
+                inputDisplayEl.innerHTML += `<img src=${redCircleImg}>`
+            } else {
+                // Update how much of the pattern is complete
+	            counter++;
+                // Display input to the DOM
+                inputDisplayEl.innerHTML += `<img src=${greenCircleImg}>`
             }
-            // Update how much of the pattern is complete
-	        counter++;
+            
             // Pattern complete fire a window alert
             if(counter === 11) {
                 alert("You have added 30 lives!");

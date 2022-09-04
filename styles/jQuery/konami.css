@@ -28,10 +28,17 @@ h3 {
 .container {
     display: flex;
     margin: 0 auto;
-    width: 80%;
+    width: 50%;
 }
 
 .input-display {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+}
+
+img {
+    width: 2em;
+    height: 2em;
+    margin: 1em;
 }
