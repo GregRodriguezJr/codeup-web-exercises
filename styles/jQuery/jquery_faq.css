@@ -50,6 +50,10 @@ dl {
     background-color: #FFD814;
 }
 
+.bold {
+    font-weight: 700;
+}
+
 /* Anchor tag */
 
 a {

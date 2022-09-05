@@ -52,21 +52,21 @@
     <div class="list-container">
         <button>Last Element Yellow</button>
         <h3>Big Ben National Park</h3>
-        <ul>
+        <ul id="big-ben">
             <li>Big Bend has more than 1,200 species of plants, including 60 species of cactus</li>
             <li>There are more than 450 species of birds found in Big Bend National Park</li>
             <li>Big Bend National Park is one of the least visited parks in the United States</li>
             <li>Its considered one of the best places to star gaze</li>
         </ul>
         <h3>Rocky Mountain National Park</h3>
-        <ul>
+        <ul id="rocky">
             <li>On average the park brings in 3 million visitors a year</li>
             <li>There are 600 buildings located inside the park, 150 of which are historic structures</li>
             <li>The Rockies are Home to a Supervolcano</li>
             <li>Bighorn Sheep Rule the Rocky Mountains</li>
         </ul>
         <h3>Zion National Park</h3>
-        <ul>
+        <ul id="zion">
             <li>The word “Zion” comes from ancient Hebrew</li>
             <li>The Zion Canyon was carved over millions of years by the Virgin River</li>
             <li>You can see an endangered species in the park</li>
@@ -90,6 +90,11 @@
             $('ul').each(function() {
                 $(this).children().last().toggleClass('highlighted');
             })  
+        })
+        // Children list items bold when h3 is clicked
+        $('h3').click(function(e) {
+            let headingId = e.target.nextElementSibling.id;
+            $(`#${headingId}`).children().toggleClass('bold').css;
         })
     </script>
 </body>
