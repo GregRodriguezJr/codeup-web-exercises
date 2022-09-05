@@ -5,18 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Konami Code</title>
+    <!-- Confetti CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="../../styles/jQuery/konami.css">
 </head>
 <body>
     <h1>Konami Code</h1>
-    <h2>Use keyboard to enter your code!</h2>
+    <h2 id="sub-header">Use keyboard to enter your code</h2>
     <div class="container">
         <div class="input-display" id="input-display"></div>
     </div>
+    <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script src="../../js/jQuery/confetti.js"></script>
     <script>
         "use strict";
+        const jsConfetti = new JSConfetti();
+        const confetti = () => jsConfetti.addConfetti();
 
         const inputDisplayEl = document.getElementById('input-display');
         const codeArray = [38,38,40,40,37,39,37,39,66,65,13];
@@ -42,10 +47,12 @@
                 inputDisplayEl.innerHTML += `<img src=${greenCircleImg}>`
             }
             
-            // Pattern complete fire a window alert
+            // Pattern complete fire a alert/change subtitle
             if(counter === 11) {
-                alert("You have added 30 lives!");
-                location.reload();
+                // alert("You have added 30 lives!");
+                // Alternative to alert, change subheading text with confetti
+                $("#sub-header").text("YOU HAVE ADDED 30 LIVES!");
+                confetti();
             }
         });
     </script>
