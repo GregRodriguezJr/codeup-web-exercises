@@ -75,27 +75,7 @@
     </div>
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script>
-        // Shows and hides all dd items
-        $('#toggle').click(function(e) {
-            e.preventDefault();
-            $('dd').toggleClass('invisible');
-        })
-        // Toggle highlighted class on dd items
-        $('dd').click(function(e) {
-            $(this).toggleClass('highlighted');
-        })
-        // Button to highlight last element in the list
-        $('button').click(function(e) {
-            $('ul').each(function() {
-                $(this).children().last().toggleClass('highlighted');
-            })  
-        })
-        // Children list items bold when h3 is clicked
-        $('h3').click(function(e) {
-            let headingId = e.target.nextElementSibling.id;
-            $(`#${headingId}`).children().toggleClass('bold').css;
-        })
-    </script>
+    <!-- Custom JS file -->
+    <script src="../../js/jQuery/jquery_faq.js"></script>
 </body>
 </html>

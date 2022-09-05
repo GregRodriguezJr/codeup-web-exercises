@@ -25,7 +25,14 @@ h1 {
 }
 
 h3 {
+    display: inline-block;
     font-weight: 700;
+}
+
+h3:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    user-select: none;
 }
 
 dd {
@@ -71,7 +78,7 @@ a:visited {
 /* Button */
 
 button {
-    display: inline-block;
+    display: block;
     outline: 0;
     cursor: pointer;
     border-radius: 8px;
