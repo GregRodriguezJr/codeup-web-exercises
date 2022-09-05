@@ -26,3 +26,26 @@ h1 {
 dd {
     margin: .75em;
 }
+
+.link-container {
+    display: flex;
+    justify-content: center;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+/* Anchor tag */
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: black;
+}

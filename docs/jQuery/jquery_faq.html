@@ -14,7 +14,9 @@
     <header>
         <h1>10 National Park Facts</h1>
     </header>
-    
+    <div class="link-container">
+        <a href="#" id="toggle">Show/Hide Text</a>
+    </div>
     <dl>
         <dd class="invisible">
             The National Park Service protects over 84 million acres of wild landscapes and historic sites.
@@ -50,7 +52,11 @@
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script>
-
+        // Shows and hides all dd items
+        $('#toggle').click(function(e) {
+            e.preventDefault();
+            $('dd').toggleClass('invisible');
+        })
     </script>
 </body>
 </html>
