@@ -8,6 +8,7 @@ html {
 
 body {
     font-family: 'Montserrat', sans-serif;
+    background-color: whitesmoke;
     margin: 0;
     padding: 0;
 }
@@ -23,8 +24,17 @@ h1 {
     text-align: center;
 }
 
+h3 {
+    font-weight: 700;
+}
+
 dd {
-    margin: .75em;
+    margin: .75em 0;
+}
+
+.list-container,
+dl {
+    padding: 1em;
 }
 
 .link-container {
