@@ -50,6 +50,7 @@
         </dd>
     </dl>
     <div class="list-container">
+        <button>Last Element Yellow</button>
         <h3>Big Ben National Park</h3>
         <ul>
             <li>Big Bend has more than 1,200 species of plants, including 60 species of cactus</li>
@@ -83,6 +84,12 @@
         // Toggle highlighted class on dd items
         $('dd').click(function(e) {
             $(this).toggleClass('highlighted');
+        })
+        // Button to highlight last element in the list
+        $('button').click(function(e) {
+            $('ul').each(function() {
+                $(this).children().last().toggleClass('highlighted');
+            })  
         })
     </script>
 </body>
