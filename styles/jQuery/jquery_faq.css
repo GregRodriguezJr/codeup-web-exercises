@@ -36,6 +36,10 @@ dd {
     visibility: hidden;
 }
 
+.highlighted {
+    background-color: yellow;
+}
+
 /* Anchor tag */
 
 a {

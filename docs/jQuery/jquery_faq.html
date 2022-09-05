@@ -57,6 +57,10 @@
             e.preventDefault();
             $('dd').toggleClass('invisible');
         })
+        // Toggle highlighted class on dd items
+        $('dd').click(function(e) {
+            $(this).toggleClass('highlighted');
+        })
     </script>
 </body>
 </html>
