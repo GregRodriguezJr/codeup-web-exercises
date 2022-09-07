@@ -13,8 +13,26 @@ body {
     font-family: 'Fira Sans', sans-serif;
 }
 
-table {
-    border: solid rgb(227, 227, 227) 1px;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+header {
+    text-align: center;
     padding: 2em;
+}
+
+table {
+    border: thin rgb(227, 227, 227) 1px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    min-width: 400px;
+} 
+
+thead {
+    text-align: left;
+    background-color: rgb(59, 73, 223);
+    color: #fff;
+}
+
+th,
+td {
+    padding: .75em 1.5em;
 }
