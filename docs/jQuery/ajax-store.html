@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Store</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../../styles/jQuery/ajax-store.css">
 </head>
@@ -26,6 +28,8 @@
     </table>
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Custom JS -->
     <script>
         (function() {
@@ -46,10 +50,10 @@
             // console.log($('#insertProducts').children().addClass('bold'));
             $('#insertProducts').children().hover(function () {
                     // over
-                    $(this).addClass('bold');
+                    $(this).addClass('highlight');
                 }, function () {
                     // out
-                    $(this).removeClass('bold');
+                    $(this).removeClass('highlight');
                 }
             );
         })

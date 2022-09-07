@@ -44,6 +44,6 @@ tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
 
-.bold {
-    font-weight: 700;
+.highlight {
+    color: rgb(59, 73, 223);
 }
