@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Online Store</title>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../styles/jQuery/ajax-store.css">
 </head>
 <body>
 
@@ -30,9 +32,8 @@
         // TODO: Create an AJAX GET request for the file under data/inventory.json
         const localUrl = "../../data/inventory.json"
         $.get(localUrl).done(function(data) {
-            // Data is an array of objects
+            // Data is an array of objects, iterate to render elements to DOM
             data.forEach(item => {
-                console.log(item);
                 $('#insertProducts').append(`
                 <tr>
                     <td>${item.title}</td>
