@@ -15,6 +15,7 @@
         <h1>My Tool Store</h1>
     </header>
     
+    <!-- Table -->
     <div class="table-responsive container">
         <table id="products" class="table table-hover">
             <thead>
@@ -28,8 +29,9 @@
             <tbody id="insertProducts"></tbody>
         </table>
     </div>
-    <!-- <img src="../../images/jQuery/ajax-store-hammer.jpg"> -->
-    <div class="container" id="img-container"></div>
+
+    <!-- Image Container -->
+    <div class="container d-flex justify-content-center mt-5" id="img-container"></div>
 
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
@@ -38,28 +40,27 @@
     <!-- Custom JS -->
     <script>
         (function() {
-        "use strict";
-        // TODO: Create an AJAX GET request for the file under data/inventory.json
-        const localUrl = "../../data/inventory.json"
-        $.get(localUrl).done(function(data) {
-            // Data in an array of objects, iterate to render elements to DOM
-            data.forEach(item => {
-                $('#insertProducts').append(`
-                <tr class="table-row">
-                    <th scope="row">${item.title}</td>
-                    <td>${item.quantity}</td>
-                    <td>$${item.price}</td>
-                    <td>${item.categories}</td>
-                </tr>`);
-            });
-            // Click event to render photo when row is clicked
-            $('.table-row').click(function (e) { 
-                e.preventDefault();
-                let toolTitleRow = e.delegateTarget.children[0].innerText.toLowerCase();
-                $('#img-container').html(`<img src="../../images/jQuery/ajax-store-${toolTitleRow}.jpg">`);
-            });
-                       
-        })
+            "use strict";
+
+            const localUrl = "../../data/inventory.json"
+            $.get(localUrl).done(function(data) {
+                // Data in an array of objects, iterate to render elements to DOM
+                data.forEach(item => {
+                    $('#insertProducts').append(`
+                    <tr class="table-row">
+                        <th scope="row">${item.title}</td>
+                        <td>${item.quantity}</td>
+                        <td>$${item.price}</td>
+                        <td>${item.categories}</td>
+                    </tr>`);
+                });
+                // Click event to render photo when row is clicked
+                $('.table-row').click(function (e) { 
+                    let toolTitleRow = e.delegateTarget.children[0].innerText.toLowerCase();
+                    $('#img-container').html(`<img src="../../images/jQuery/ajax-store-${toolTitleRow}.jpg">`);
+                });          
+            })
+            
         })();
     </script>
         
