@@ -15,17 +15,20 @@
         <h1>My Tool Store</h1>
     </header>
     
-    <table id="products">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Categories</th>
-            </tr>
-        </thead>
-        <tbody id="insertProducts"></tbody>
-    </table>
+    <div class="table-responsive container">
+        <table id="products" class="table table-hover">
+            <thead>
+                <tr class="table-primary">
+                    <th scope="col">Title</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Categories</th>
+                </tr>
+            </thead>
+            <tbody id="insertProducts"></tbody>
+        </table>
+    </div>
+    
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <!-- Bootstrap -->
@@ -41,7 +44,7 @@
             data.forEach(item => {
                 $('#insertProducts').append(`
                 <tr>
-                    <td>${item.title}</td>
+                    <th scope="row">${item.title}</td>
                     <td>${item.quantity}</td>
                     <td>$${item.price}</td>
                     <td>${item.categories}</td>
@@ -57,10 +60,6 @@
                 }
             );
         })
-        // TODO: Take the data from inventory.json and append it to the products table
-        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-        //             its contents and fields
-        //       HINT: You will want to target #insertProducts for your new HTML elements
         })();
     </script>
         
