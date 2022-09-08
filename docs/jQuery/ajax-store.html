@@ -50,15 +50,11 @@
                     <td>${item.categories}</td>
                 </tr>`);
             });
-            // console.log($('#insertProducts').children().addClass('bold'));
-            $('#insertProducts').children().hover(function () {
-                    // over
-                    $(this).addClass('highlight');
-                }, function () {
-                    // out
-                    $(this).removeClass('highlight');
-                }
-            );
+            $('#insertProducts').click(function (e) { 
+                e.preventDefault();
+                const toolTitle = e.target.innerHTML;
+                console.log(toolTitle);
+            });            
         })
         })();
     </script>
