@@ -1,10 +1,15 @@
 const localUrl = "../../data/blog.json"
 
 $.get(localUrl)
-    .done(function(data) {
+    .done((data) => {
         const blogPosts = data;
-        console.log(blogPosts);
+        blogPosts.forEach(blogPost => {
+            $('#post').append(`
+                <h1>${blogPost.title}</h1>
+                <p>${blogPost.categories}</p>
+                <p>${blogPost.date}</p>
+                <p>${blogPost.content}</p>
+            `);
+        });
     })
-    .fail(function() {
-        console.log("error fetching data");
-    });
+    .fail(() => $('#post').append(`<h3>Error loading data :(</h3>`));
