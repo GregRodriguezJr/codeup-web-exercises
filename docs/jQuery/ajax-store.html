@@ -16,7 +16,7 @@
     </header>
     
     <!-- Table -->
-    <div class="table-responsive container">
+    <div class="container table-responsive">
         <table id="products" class="table table-hover">
             <thead>
                 <tr class="table-primary">
@@ -30,8 +30,13 @@
         </table>
     </div>
 
+    <!-- Button Container -->
+    <div class="container d-flex justify-content-center mb-3">
+        <button class="btn btn-primary" id="refresh-btn">Refresh</button>
+    </div>
+
     <!-- Image Container -->
-    <div class="container d-flex justify-content-center mt-5" id="img-container"></div>
+    <div class="container d-flex justify-content-center" id="img-container"></div>
 
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
@@ -60,7 +65,10 @@
                     $('#img-container').html(`<img src="../../images/jQuery/ajax-store-${toolTitleRow}.jpg">`);
                 });          
             })
-            
+
+            $('#refresh-btn').click(function () { 
+                location.reload()                
+            });
         })();
     </script>
         
