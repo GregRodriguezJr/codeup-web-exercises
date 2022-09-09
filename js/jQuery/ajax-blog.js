@@ -4,7 +4,7 @@ $.get(localUrl)
     .done((data) => {
         const blogPosts = data;
         // Create card for each blog post
-        blogPosts.forEach((blogPost,index) => {
+        blogPosts.forEach((blogPost) => {
             $('#post').append(`
                 <div class="card my-4">
                     <div class="card-header bg-light">
@@ -12,9 +12,10 @@ $.get(localUrl)
                     </div>
                     <div class="card-body">
                         <p>Categories: ${blogPost.categories}</p>
-                        <p>${blogPost.date}</p>
                         <p>${blogPost.content}</p>
-                        <button id="blogPost${index}" class="btn btn-primary">Photos</button>
+                    </div>
+                    <div class="card-footer">
+                        ${blogPost.date}
                     </div>
                 </div>
             `);
