@@ -10,7 +10,7 @@
     <!-- Custom CSS -->
     <style>
         body {
-        background-image: url(../../images/jQuery/ajax-blog-map.jpg);
+        background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../../images/jQuery/ajax-blog-map.jpg);
         background-size: cover;
         }
     </style>
@@ -32,9 +32,24 @@
       </nav>
     <!-- Main Content -->
     <main>
+        <!-- Blog Post -->
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-10 col-lg-8" id="post"></div>
+            </div>
+        </div>
+        <!-- Subscribe -->
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body text-center">
+                            <h2>Stay in the Loop</h2>
+                            <p>Get the lasted travel updates as they happen...</p>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#subscribe-modal">Subscribe</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
