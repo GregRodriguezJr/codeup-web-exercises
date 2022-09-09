@@ -5,10 +5,17 @@ $.get(localUrl)
         const blogPosts = data;
         blogPosts.forEach(blogPost => {
             $('#post').append(`
-                <h1>${blogPost.title}</h1>
-                <p>${blogPost.categories}</p>
-                <p>${blogPost.date}</p>
-                <p>${blogPost.content}</p>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>${blogPost.title}</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Categories: ${blogPost.categories}</p>
+                        <p>${blogPost.date}</p>
+                        <p>${blogPost.content}</p>
+                        <button class="btn btn-primary">Photos</button>
+                    </div>
+                </div>
             `);
         });
     })
