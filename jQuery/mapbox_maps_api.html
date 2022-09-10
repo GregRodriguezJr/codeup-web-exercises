@@ -42,14 +42,33 @@
         center: [-96.8283, 33.1080]
     });
 
-    // Create a new marker.
-    const marker = new mapboxgl.Marker()
-    .setLngLat([-96.8283, 33.1080])
-    // Add popup
-    .setPopup(new mapboxgl.Popup()
-    .setHTML("<p1>Sushi Marquee &#128523;</p1>"))
-    .addTo(map);
-    
+    let restaurants = [
+        {
+            name: "Sushi Marquee &#127843;",
+            cuisine: "Japanese",
+            phone: "(972)833-1608",
+            lng: -96.8283,
+            lat: 33.1080
+        }
+    ]
+
+    restaurants.forEach((restaurant) => {
+        // Destructuring the object
+        const { name, cuisine, phone, lng, lat} = restaurant;
+        // Create a new marker.
+        const marker = new mapboxgl.Marker()
+        .setLngLat([lng, lat])
+        // Add popup
+        .setPopup(new mapboxgl.Popup()
+        .setHTML(
+            `<p>
+                ${name}<br>
+                ${cuisine} Cuisine<br>
+                ${phone}
+            </p>`
+        ))
+        .addTo(map);
+    })
 
 </script>
 </body>
