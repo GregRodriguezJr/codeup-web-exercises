@@ -23,27 +23,34 @@
 <!-- The HTML element that serves as the Mapbox container -->
 <div id='map'></div>
 
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <!-- Mapbox JS -->
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-
 <!-- Mapbox Token -->
 <script src="../js/keys.js"></script>
-
 <!-- Mapbox Geocoder Util Methods -->
 <script src="js/mapbox-geocoder-utils.js"></script>
-
 <!-- Custom JS -->
 <script>
+    // Map of Dallas
     mapboxgl.accessToken = MAPBOX_TOKEN;
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
-        zoom: 10,
+        zoom: 13,
         center: [-96.8283, 33.1080]
     });
-    var marker = new mapboxgl.Marker()
+
+    // Create a new marker.
+    const marker = new mapboxgl.Marker()
     .setLngLat([-96.8283, 33.1080])
+    // Add popup
+    .setPopup(new mapboxgl.Popup()
+    .setHTML("<p1>Sushi Marquee &#128523;</p1>"))
     .addTo(map);
+    
+
 </script>
 </body>
 </html>
