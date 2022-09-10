@@ -29,6 +29,9 @@
 <!-- Mapbox Token -->
 <script src="../js/keys.js"></script>
 
+<!-- Mapbox Geocoder Util Methods -->
+<script src="js/mapbox-geocoder-utils.js"></script>
+
 <!-- Custom JS -->
 <script>
     mapboxgl.accessToken = MAPBOX_TOKEN;
@@ -36,8 +39,11 @@
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
         zoom: 10,
-        center: [-98.4916, 29.4252]
+        center: [-96.8283, 33.1080]
     });
+    var marker = new mapboxgl.Marker()
+    .setLngLat([-96.8283, 33.1080])
+    .addTo(map);
 </script>
 </body>
 </html>
