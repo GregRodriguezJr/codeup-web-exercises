@@ -1,4 +1,4 @@
-const localUrl = "../../data/blog.json"
+const localUrl = "../jQuery/data/blog.json"
 
 $.get(localUrl)
     .done((data) => {
@@ -21,4 +21,4 @@ $.get(localUrl)
             `);
         });
     })
-    .fail(() => $('#post').append(`<h3>Error loading data :(</h3>`));
+    .fail(() => $('#post').append(`<h3 class="text-light">Error loading data :(</h3>`));

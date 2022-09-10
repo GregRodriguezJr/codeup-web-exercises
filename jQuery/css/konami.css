@@ -12,8 +12,7 @@ body {
     font-family: 'Changa', sans-serif;
     color: #fff;
     text-align: center;
-    background-image: url(../../images/arcade.jpg);
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(../../images/jQuery/konami\-arcade.jpg);
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../images/konami-arcade.jpg);
     background-size: cover;
 }
 

@@ -34,10 +34,9 @@
     <div class="container d-flex justify-content-center mb-3">
         <button class="btn btn-secondary" id="refresh-btn">Refresh</button>
     </div>
-
     <!-- Image Container -->
     <div class="container d-flex justify-content-center" id="img-container"></div>
-
+    <img src="" alt="">
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <!-- Bootstrap -->
@@ -47,7 +46,7 @@
         (function() {
             "use strict";
 
-            const localUrl = "../../data/inventory.json"
+            const localUrl = "../jQuery/data/inventory.json"
             $.get(localUrl).done(function(data) {
                 // Data in an array of objects, iterate to render elements to DOM
                 data.forEach(item => {
@@ -62,7 +61,7 @@
                 // Click event to render photo when row is clicked
                 $('.table-row').click(function (e) { 
                     let toolTitleRow = e.delegateTarget.children[0].innerText.toLowerCase();
-                    $('#img-container').html(`<img src="../../images/jQuery/ajax-store-${toolTitleRow}.jpg">`);
+                    $('#img-container').html(`<img src="../jQuery/images/ajax-store-${toolTitleRow}.jpg">`);
                 });          
             })
 
