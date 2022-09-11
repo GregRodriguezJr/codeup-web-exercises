@@ -49,16 +49,18 @@
 <script src="js/mapbox-geocoder-utils.js"></script>
 <!-- Custom JS -->
 <script>
-    let zoomNum = 12;
     // Map of Dallas
     mapboxgl.accessToken = MAPBOX_TOKEN;
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
-        zoom: zoomNum,
+        zoom: 12,
         center: [-96.8283, 33.1080]
     });
-    
+
+    // Add zoom and rotation controls to the map.
+    map.addControl(new mapboxgl.NavigationControl());
+
     // Array of favorite restaurants objects
     let restaurants = [
         {
