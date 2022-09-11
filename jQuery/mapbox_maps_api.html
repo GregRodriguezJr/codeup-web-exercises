@@ -7,6 +7,8 @@
     <title>Mapbox Maps</title>
     <!-- Mapbox CSS -->
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <!-- Custom CSS -->
     <style>
         #map {
@@ -18,13 +20,14 @@
     </style>
 </head>
 <body>
-    <h1>My First Mapbox Map!</h1>
-
+    <h1 class="text-center">Mapbox Map</h1>
 <!-- The HTML element that serves as the Mapbox container -->
 <div id='map'></div>
 
 <!-- jQuery CDN -->
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<!-- Bootstrap CDN -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 <!-- Mapbox JS -->
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <!-- Mapbox Token -->
@@ -33,15 +36,17 @@
 <script src="js/mapbox-geocoder-utils.js"></script>
 <!-- Custom JS -->
 <script>
+    let zoomNum = 12;
     // Map of Dallas
     mapboxgl.accessToken = MAPBOX_TOKEN;
     var map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v9',
-        zoom: 13,
+        zoom: zoomNum,
         center: [-96.8283, 33.1080]
     });
     
+    // Array of favorite restaurants objects
     let restaurants = [
         {
             name: "Sushi Marquee &#127843;",
@@ -65,7 +70,8 @@
             lat: 33.0802
         }
     ]
-
+    
+    // Loop to add all markers with popups
     restaurants.forEach((restaurant) => {
         // Destructuring the object
         const { name, cuisine, phone, lng, lat} = restaurant;
