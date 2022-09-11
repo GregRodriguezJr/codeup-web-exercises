@@ -41,7 +41,7 @@
         // Destructuring the object
         const { name, cuisine, phone, lng, lat} = restaurant;
         // Create a new marker.
-        const marker = new mapboxgl.Marker()
+        new mapboxgl.Marker()
         .setLngLat([lng, lat])
         // Add popup
         .setPopup(new mapboxgl.Popup()
@@ -60,14 +60,8 @@
  * @param {string} search is the address to search for the geocoded coordinates
  * @param {string} token is your API token for MapBox
  * @returns {Promise} a promise containing the latitude and longitude as a two element array
- *
- * EXAMPLE:
- *
- *  geocode("San Antonio", API_TOKEN_HERE).then(function(results) {
- *      // do something with results
- *  })
- *
- */
+***/
+
 function geocode(search, token) {
     var baseUrl = 'https://api.mapbox.com';
     var endPoint = '/geocoding/v5/mapbox.places/';
@@ -80,6 +74,17 @@ function geocode(search, token) {
         });
 }
 
+// New marker on the map for user input
+$('#search-btn').click(() => { 
+    const searchInput = $('#search-input').val();
+    geocode(searchInput, mapboxgl.accessToken).then((result) => {
+        map.setCenter(result);
+        map.setZoom(14);
+        new mapboxgl.Marker()
+        .setLngLat([result[0], result[1]])
+        .addTo(map);
+    })
+});
 
 /***
  * reverseGeocode is a method to search for a physical address based on inputted coordinates
