@@ -17,6 +17,10 @@
             width: 75%;
             height: 500px;
         }
+
+        .hide {
+            visibility: hidden;
+        }
     </style>
 </head>
 <body>
@@ -31,8 +35,17 @@
             <div class="col-lg-6 col-md-8">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Search Location" aria-label="Seearch Location" aria-describedby="button-addon2" id="search-input">
-                    <button class="btn btn-outline-primary" type="button" id="search-btn">Button</button>
+                    <button class="btn btn-outline-primary" type="button" id="search-btn">Search</button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons Container -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 d-flex justify-content-around mb-3">
+                <button id="hide-markers-btn" type="button" class="btn btn-primary">Hide All Markers</button>
             </div>
         </div>
     </div>
