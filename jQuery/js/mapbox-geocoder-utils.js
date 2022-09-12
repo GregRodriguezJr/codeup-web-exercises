@@ -74,6 +74,18 @@ function geocode(search, token) {
         });
 }
 
+// Render coordinates to the DOM
+const renderCoordinates = (coordinates) => {
+    $('#coordinates-el').html(`
+        <h5 class="m-3">
+            Longitude:  ${coordinates.lng.toFixed(4)}
+        </h5>
+        <h5 class="m-3">
+            Latitude:  ${coordinates.lat.toFixed(4)}
+        </h5>
+    `);
+};
+
 // New marker on the map from user input
 $('#search-btn').click(() => { 
     const searchInput = $('#search-input').val();
