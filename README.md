@@ -1,6 +1,6 @@
 # Haskell Cohort   
 
-<img src="images/CodeupLogo.png" width="200" alt="Codeup Logo">  
+<img src="CodeupLogo.png" width="200" alt="Codeup Logo">  
 
 A collection of exercises, projects, and test-driven development.  
 
