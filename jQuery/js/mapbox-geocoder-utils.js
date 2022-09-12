@@ -74,15 +74,22 @@ function geocode(search, token) {
         });
 }
 
-// New marker on the map for user input
+// New marker on the map from user input
 $('#search-btn').click(() => { 
     const searchInput = $('#search-input').val();
     geocode(searchInput, mapboxgl.accessToken).then((result) => {
         map.setCenter(result);
         map.setZoom(14);
-        new mapboxgl.Marker()
+        const marker = new mapboxgl.Marker({draggable: true})
         .setLngLat([result[0], result[1]])
         .addTo(map);
+        let coordinates = marker.getLngLat();
+        renderCoordinates(coordinates);
+        // If marker moved, call function to render coordinates to the DOM
+        marker.on('dragend', () => {
+            coordinates = marker.getLngLat();
+            renderCoordinates(coordinates);
+        })
     })
 });
 
