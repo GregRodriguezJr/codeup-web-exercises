@@ -90,6 +90,7 @@ function geocode(search, token) {
         })
         // to get all the data from the request, comment out the following three lines...
         .then(function(data) {
+            // Render address to the DOM
             const address = data.features[0].place_name;
             $('#address-el').html(`<h5>${address}</h5>`)
         });
@@ -107,25 +108,29 @@ const renderCoordinates = (coordinates) => {
     `);    
 };
 
-// New marker on the map from user input
+// Event listener to capture user input
 $('#search-btn').click(() => { 
-    const searchInput = $('#search-input').val();
+    let searchInput = $('#search-input').val();
     geocode(searchInput, mapboxgl.accessToken).then((result) => {
         map.setCenter(result);
         map.setZoom(14);
+        // New marker on the map from user input
         const marker = new mapboxgl.Marker({draggable: true})
         .setLngLat([result[0], result[1]])
         .addTo(map);
         let coordinates = marker.getLngLat();
+        // call functions to render coordinates/address to the DOM
         renderCoordinates(coordinates);
         reverseGeocode(coordinates, mapboxgl.accessToken)
-        // If marker moved, call function to render coordinates to the DOM
+        // If marker moved, call functions to render coordinates/address to the DOM
         marker.on('dragend', () => {
             coordinates = marker.getLngLat();
             renderCoordinates(coordinates);
             reverseGeocode(coordinates, mapboxgl.accessToken)
         })
-    })   
+    })  
+    // Clear search field
+    document.getElementById('search-input').value = '';
 });
 
 // Button to hide all markers
