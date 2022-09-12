@@ -91,6 +91,11 @@ $('#hide-markers-btn').click(() => {
     $('.mapboxgl-marker').css('visibility','hidden');
 })
 
+// Button to show all markers
+$('#show-markers-btn').click(() => {
+    $('.mapboxgl-marker').css('visibility','visible');
+})
+
 /***
  * reverseGeocode is a method to search for a physical address based on inputted coordinates
  * @param {object} coordinates is an object with properties "lat" and "lng" for latitude and longitude
