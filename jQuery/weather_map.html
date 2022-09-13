@@ -5,101 +5,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Map</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./css/weather_map.css">
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 </head>
 <body>
-    
-    <div class="widget-container">
-        <div id="openweathermap-widget-15"></div>
+
+    <div class="is-flex is-justify-content-center m-5">
         <div id="openweathermap-widget-11"></div>
     </div>
-    <!-- Input Container -->
-    <div class="is-flex is-justify-content-center my-5">
-        <div class="field has-addons">
-            <div class="control">
-              <input class="input" type="text" placeholder="Search" id="search-input">
-            </div>
-            <div class="control">
-                <button class="button is-info" id="submit-btn">Submit</button>
-            </div>
+
+    <!-- Mapbox container -->
+    <div class="is-flex is-justify-content-space-evenly">
+        <!-- Input Field -->
+        <div class="is-flex is-flex-direction-column is-justify-content-space-evenly is-align-items-center">
+            <div class="field has-addons">
+                <div class="control">
+                <input class="input" type="text" placeholder="Search" id="search-input">
+                </div>
+                <div class="control">
+                    <button class="button is-info" id="submit-btn">Submit</button>
+                </div>
+            </div>  
+            <div id="openweathermap-widget-15"></div>
         </div>
+        <!-- Map -->
+        <div id='map' style="width: 60%; height: 500px"></div>
     </div>
 
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <!-- API tokens -->
     <script src="../keys.js"></script>
+    <!-- Mapbox CDN -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+    <!-- Open weather map CDN-->
     <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
-    <script>
-        let lon = -96.8033;
-        let lat = 32.7778;
-        // const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${WEATHER_API_TOKEN}`
-
-
-
-        // Render forecast to the DOM with widgets
-        const renderWidgets = (cityId) => {
-            // Open weather map code to display 5 day forecast widget
-            window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  
-            window.myWidgetParam.push(
-                {
-                    id: 11,
-                    cityid: `${cityId}`,
-                    appid: `${WEATHER_API_TOKEN}`,
-                    units: 'imperial',
-                    containerid: 'openweathermap-widget-11',  
-                }
-            );
-            (function() {
-                var script = document.createElement('script');
-                script.async = true;
-                script.charset = "utf-8";
-                script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(script, s);  
-            })();
-            // Open weather map code to display todays forecast widget
-            window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  
-            window.myWidgetParam.push(
-                {
-                    id: 15,
-                    cityid: `${cityId}`,
-                    appid: `${WEATHER_API_TOKEN}`,
-                    units: 'imperial',
-                    containerid: 'openweathermap-widget-15',  
-                }
-            );  
-            (function() {
-                var script = document.createElement('script');
-                script.async = true;
-                script.charset = "utf-8";
-                script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(script, s);  
-            })();
-        };
-        // Open weather map API call
-        async function fetchWeather() {
-            try {
-                const response = await fetch(weatherUrl);
-                if (!response.ok) {
-                    throw new Error(`HTTP error: ${response.status}`);
-                };
-                const data = await response.json();
-                const cityId = data.city.id
-                const list = data.list;
-                let fiveDayList = [];
-                // Loop through data to get every 8th object (24hr day)
-                for (let i = 0; i < list.length; i += 8) {
-                    // Push each 24hr object to new array
-                    fiveDayList.push(list[i]);
-                }
-                renderWidgets(cityId);
-            } catch (error) {
-                console.error(`Could not get products: ${error}`);
-            }
-        }
-        fetchWeather();
-    </script>
+    <script src=""></script>
+    <!-- Custom Js -->
+    <script src="./js/weather_map.js"></script>
 </body>
 </html>
