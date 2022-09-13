@@ -16,12 +16,18 @@
 
         async function fetchWeather() {
             try {
-                const response = await fetch(geoCodeUrl);
+                const response = await fetch(weatherUrl);
                 if (!response.ok) {
                     throw new Error(`HTTP error: ${response.status}`);
                 };
                 const data = await response.json();
-                console.log(data);
+                let list = data.list;
+                let fiveDayList = [];
+                // Loop through data to get every 8th object (24hr day)
+                for (let i = 0; i < list.length; i += 8) {
+                    // Push each 24hr object to new array
+                    fiveDayList.push(list[i]);
+                }
             } catch (error) {
                 console.error(`Could not get products: ${error}`);
             }
