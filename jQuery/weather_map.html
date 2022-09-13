@@ -12,7 +12,21 @@
     <script>
         const lon = -96.8033;
         const lat = 32.7778;
-        const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_TOKEN}`
+        // const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${WEATHER_API_TOKEN}`
+
+        async function fetchWeather() {
+            try {
+                const response = await fetch(geoCodeUrl);
+                if (!response.ok) {
+                    throw new Error(`HTTP error: ${response.status}`);
+                };
+                const data = await response.json();
+                console.log(data);
+            } catch (error) {
+                console.error(`Could not get products: ${error}`);
+            }
+        }
+        fetchWeather();
     </script>
 </body>
 </html>
