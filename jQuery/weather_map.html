@@ -18,24 +18,28 @@
     <div class="is-flex is-justify-content-center my-5">
         <div class="field has-addons">
             <div class="control">
-              <input class="input" type="text" placeholder="Search">
+              <input class="input" type="text" placeholder="Search" id="search-input">
             </div>
             <div class="control">
-                <button class="button is-info">Submit</button>
+                <button class="button is-info" id="submit-btn">Submit</button>
             </div>
         </div>
     </div>
 
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="../keys.js"></script>
     <script src='//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js'></script>
     <script>
-        const lon = -96.8033;
-        const lat = 32.7778;
+        let lon = -96.8033;
+        let lat = 32.7778;
         // const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${WEATHER_API_TOKEN}`
 
-        // Render 5 day forecast to the DOM with widget
+
+
+        // Render forecast to the DOM with widgets
         const renderWidgets = (cityId) => {
-            // Open weather map code to display widget
+            // Open weather map code to display 5 day forecast widget
             window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  
             window.myWidgetParam.push(
                 {
@@ -54,7 +58,7 @@
                 var s = document.getElementsByTagName('script')[0];
                 s.parentNode.insertBefore(script, s);  
             })();
-
+            // Open weather map code to display todays forecast widget
             window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  
             window.myWidgetParam.push(
                 {
@@ -74,7 +78,7 @@
                 s.parentNode.insertBefore(script, s);  
             })();
         };
-
+        // Open weather map API call
         async function fetchWeather() {
             try {
                 const response = await fetch(weatherUrl);
