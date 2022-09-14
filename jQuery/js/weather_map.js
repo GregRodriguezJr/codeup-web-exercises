@@ -1,25 +1,19 @@
+mapboxgl.accessToken = MAPBOX_TOKEN;
+
 // Default map on onload
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
-    zoom: 12,
+    zoom: 4,
     center: [-96.8283, 33.1080]
 });
 
-// Add the control to the map.
-map.addControl(
-    new MapboxGeocoder({
-    accessToken: MAPBOX_TOKEN,
-    mapboxgl: mapboxgl
-    })
-    );
-
-    // Add zoom and rotation controls to the map.
+// Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
 
 // Event listener to capture user input
-$('#submit-btn').click(() => {
-    let searchInput = $('#search-input').val();
+$('.mapboxgl-ctrl-geocoder--input').click(() => {
+    let searchInput = $('.mapboxgl-ctrl-geocoder--input').val();
     console.log(searchInput);
 })
 
