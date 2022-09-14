@@ -1,6 +1,6 @@
 mapboxgl.accessToken = MAPBOX_TOKEN;
 
-// Default map on onload
+// Default onload map
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
@@ -24,36 +24,17 @@ function geocode(search, token) {
         });
 }
 
-// Event listener to capture user input and call weather API
-$('#search-input-btn').click(() => {
-    const searchInput = $('#search-input').val();
-    geocode(searchInput, mapboxgl.accessToken).then((result) => {
-        // Set new map from users search
-        map.setCenter(result);
-        map.setZoom(14);
-        // New marker on the map from user input
-        let marker = new mapboxgl.Marker({draggable: true})
-        .setLngLat([result[0], result[1]])
-        .addTo(map);
-        let coordinates = marker.getLngLat();   
-        // Set map to search location
-        let lat = coordinates.lat;
-        let lng = coordinates.lng;
-        fetchWeather(lat, lng);
-    });
-});
-
 // Render forecast to the DOM with widgets
 const renderWidgets = (cityId) => {
     // Widget element container
     let widgetEl = document.getElementById('widget');
-    // Open weather map code to display 5 day forecast widget
     window.myWidgetParam = [];  
     widgetEl.innerHTML = `
         <div id="openweathermap-widget-11"></div>
         <div id="openweathermap-widget-15"></div>
     `;
     window.myWidgetParam.push(
+        // Open weather map code to display 5 day forecast widget
         {
             id: 11,
             cityid: `${cityId}`,
@@ -61,6 +42,7 @@ const renderWidgets = (cityId) => {
             units: 'imperial',
             containerid: 'openweathermap-widget-11',  
         },
+        // Open weather map code to display single day widget
         {
             id: 15,
             cityid: `${cityId}`,
@@ -76,20 +58,8 @@ const renderWidgets = (cityId) => {
     script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(script, s);  
-
-    // Open weather map code to display todays forecast widget
-    // window.myWidgetParam = [];
-    // widgetEl.innerHTML = ``;
-    // window.myWidgetParam.push(
-       
-    // );  
-    // var script = document.createElement('script');
-    // script.async = true;
-    // script.charset = "utf-8";
-    // script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
-    // var s = document.getElementsByTagName('script')[0];
-    // s.parentNode.insertBefore(script, s);  
 };
+
 // Open weather map API call
 async function fetchWeather(lat, lng) {
     const weatherUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lng}&units=imperial&appid=${WEATHER_API_TOKEN}`
@@ -105,3 +75,18 @@ async function fetchWeather(lat, lng) {
         console.error(`Could not get data: ${error}`);
     }
 }
+
+// Event listener to capture user input to display map and call weather API
+$('#search-input-btn').click(() => {
+    geocode($('#search-input').val(), mapboxgl.accessToken).then((result) => {
+        let lng = result[0];
+        let lat = result[1];
+        // Set new map from users search
+        map.setCenter(result);
+        map.setZoom(14);
+        // New marker on the map
+        new mapboxgl.Marker({draggable: false})
+        .setLngLat([lng, lat]).addTo(map);
+        fetchWeather(lat, lng);
+    });
+});
