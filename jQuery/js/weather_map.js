@@ -1,4 +1,3 @@
-mapboxgl.accessToken = MAPBOX_TOKEN;
 // Default map on onload
 var map = new mapboxgl.Map({
     container: 'map',
@@ -7,7 +6,15 @@ var map = new mapboxgl.Map({
     center: [-96.8283, 33.1080]
 });
 
-// Add zoom and rotation controls to the map.
+// Add the control to the map.
+map.addControl(
+    new MapboxGeocoder({
+    accessToken: MAPBOX_TOKEN,
+    mapboxgl: mapboxgl
+    })
+    );
+
+    // Add zoom and rotation controls to the map.
 map.addControl(new mapboxgl.NavigationControl());
 
 // Event listener to capture user input
@@ -82,4 +89,4 @@ async function fetchWeather() {
         console.error(`Could not get data: ${error}`);
     }
 }
-fetchWeather();
+// fetchWeather();
