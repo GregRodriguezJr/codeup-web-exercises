@@ -79,9 +79,11 @@ async function fetchWeather(lat, lng) {
 // Event listener to capture user input to display map and call weather API
 $('#search-input-btn').click((e) => {
     e.preventDefault();
-    geocode($('#search-input').val(), mapboxgl.accessToken).then((result) => {
+    let searchInput = $('#search-input').val();
+    geocode(searchInput, mapboxgl.accessToken).then((result) => {
         const lng = result[0];
         const lat = result[1];
+        document.getElementById('form').reset();
         // Set new map from users search
         map.setCenter(result);
         map.setZoom(14);
