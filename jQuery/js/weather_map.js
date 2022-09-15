@@ -1,7 +1,7 @@
 mapboxgl.accessToken = MAPBOX_TOKEN;
 
 // Default onload map
-var map = new mapboxgl.Map({
+let map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v9',
     zoom: 4,
@@ -13,8 +13,8 @@ map.addControl(new mapboxgl.NavigationControl());
 
 // Method to search for coordinates based on a physical address and return
 function geocode(search, token) {
-    var baseUrl = 'https://api.mapbox.com';
-    var endPoint = '/geocoding/v5/mapbox.places/';
+    const baseUrl = 'https://api.mapbox.com';
+    const endPoint = '/geocoding/v5/mapbox.places/';
     return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
         .then(function(res) {
             return res.json();
@@ -27,7 +27,7 @@ function geocode(search, token) {
 // Render forecast to the DOM with widgets
 const renderWidgets = (cityId) => {
     // Widget element container
-    let widgetEl = document.getElementById('widget');
+    const widgetEl = document.getElementById('widget');
     window.myWidgetParam = [];  
     widgetEl.innerHTML = `
         <div id="openweathermap-widget-11"></div>
@@ -52,11 +52,11 @@ const renderWidgets = (cityId) => {
         }
     );
     
-    var script = document.createElement('script');
+    const script = document.createElement('script');
     script.async = true;
     script.charset = "utf-8";
     script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
-    var s = document.getElementsByTagName('script')[0];
+    const s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(script, s);  
 };
 
@@ -77,14 +77,15 @@ async function fetchWeather(lat, lng) {
 }
 
 // Event listener to capture user input to display map and call weather API
-$('#search-input-btn').click(() => {
+$('#search-input-btn').click((e) => {
+    e.preventDefault();
     geocode($('#search-input').val(), mapboxgl.accessToken).then((result) => {
-        let lng = result[0];
-        let lat = result[1];
+        const lng = result[0];
+        const lat = result[1];
         // Set new map from users search
         map.setCenter(result);
         map.setZoom(14);
-        // New marker on the map
+        // Set new marker on the map
         new mapboxgl.Marker({draggable: false})
         .setLngLat([lng, lat]).addTo(map);
         fetchWeather(lat, lng);
