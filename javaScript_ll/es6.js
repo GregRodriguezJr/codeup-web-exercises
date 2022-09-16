@@ -39,7 +39,7 @@ const languages = ['javascript', 'java', 'sql'];
 
 // let name = "Jon"
 
-// TODO: rewrite the object literal using object property shorthand
+// 2. TODO: rewrite the object literal using object property shorthand
 // users.push({
 //   name: name,
 //   email: email,
@@ -53,9 +53,9 @@ users.push({
 })
 console.log(users);
 
-// TODO: replace `var` with `let` in the following variable declarations
-var emails = [];
-var names = [];
+// 3. TODO: replace `var` with `let` in the following variable declarations
+let emails = [];
+let names = [];
 
 // TODO: rewrite the following using arrow functions
 users.forEach(function(user) {
