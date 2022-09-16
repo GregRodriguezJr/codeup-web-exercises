@@ -40,11 +40,18 @@ const languages = ['javascript', 'java', 'sql'];
 // let name = "Jon"
 
 // TODO: rewrite the object literal using object property shorthand
+// users.push({
+//   name: name,
+//   email: email,
+//   languages: languages
+// });
+
 users.push({
-  name: name,
-  email: email,
-  languages: languages
-});
+  name,
+  email,
+  languages
+})
+console.log(users);
 
 // TODO: replace `var` with `let` in the following variable declarations
 var emails = [];
