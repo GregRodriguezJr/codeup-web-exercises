@@ -58,5 +58,16 @@ const getExperience = (users) => {
 // console.log(getExperience(users));
 
 // 5. Use .reduce to get the longest email from the list of users.
+
+users.forEach(user => {
+    console.log(user.email, user.email.length);
+})
+
+const longest = users.reduce((acc, current) => {
+    return acc.length < current.email.length ? current.email : acc;
+}, users[0].email)
+
+// console.log(longest);
+
 // 6. Use .reduce to get the list of user's names in a single string. Example: Your instructors are: ryan, luis, zach, fernando, justin.
 // Bonus Use .reduce to get the unique list of languages from the list of users.
