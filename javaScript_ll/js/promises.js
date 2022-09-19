@@ -1,5 +1,6 @@
-let username = "shivasamadhi"
-const cardEl = document.getElementById('card');
+const cardEl = document.getElementById('card-container');
+const inputBtn = document.getElementById('input-btn');
+const inputText = document.querySelector('.form-control');
 
 // API call to fetch github data
 // const fetchGithub = (username) => {
@@ -22,23 +23,29 @@ const renderHtml = (dataObj, date) => {
     const 
         { 
             type, 
-            payload: {commits: [{message}]}, 
+            payload: 
+                {
+                    commits: 
+                    [{ message, author:{name:author}}]
+                }, 
             repo: {name : repoName}, 
-            actor: {avatar_url: img, login} 
+            actor: {avatar_url} 
         } 
         = dataObj;
 
     cardEl.innerHTML = `
-    <img src="" class="card-img-top">
-    <div class="card-body">
-        <h5 class="card-title">${login}</h5>
-        <p class="card-text">Last commit: ${date}</p>
+    <div id="card" class="card m-auto" style="width: 18rem;">
+        <img src=${avatar_url} class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">${author}</h5>
+            <p class="card-text">Last commit: ${date}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Type: ${type}</li>
+            <li class="list-group-item">Repo: ${repoName}</li>
+            <li class="list-group-item">Commit: "${message}"</li>
+        </ul>
     </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">Type: ${type}</li>
-        <li class="list-group-item">Repo: ${repoName}</li>
-        <li class="list-group-item">Commit: "${message}"</li>
-    </ul>
     `
 }
 
@@ -49,13 +56,18 @@ async function fetchGithub(username){
         const response = await fetch(url, { headers: {'Authorization': GITHUB_API_TOKEN} });
         const data = await response.json();
         const date = data[0].created_at;
+        console.log(data);
         // Format date to day/month/year
         const formatedDate = `${date.substring(5,7)}/${date.substring(8,10)}/${date.substring(0,4)}`;
         renderHtml(data[0], formatedDate);
+        inputText.value = '';
     } catch (error) {
         console.log(error);
     }
 }
-fetchGithub(username);
 
-     
+// Event Listener
+
+inputBtn.addEventListener('click', () => {
+    fetchGithub(inputText.value);
+});
