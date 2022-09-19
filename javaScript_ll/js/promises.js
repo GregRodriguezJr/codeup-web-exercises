@@ -1,4 +1,5 @@
 let username = "shivasamadhi"
+const cardEl = document.getElementById('card');
 
 // API call to fetch github data
 // const fetchGithub = (username) => {
@@ -18,7 +19,27 @@ let username = "shivasamadhi"
 
 // Function to render HTML to the DOM
 const renderHtml = (dataObj, date) => {
-    const { type,payload: {commits: [{message}]}, repo: {name : repoName}, actor: {avatar_url: img} } = dataObj;
+    const 
+        { 
+            type, 
+            payload: {commits: [{message}]}, 
+            repo: {name : repoName}, 
+            actor: {avatar_url: img, login} 
+        } 
+        = dataObj;
+
+    cardEl.innerHTML = `
+    <img src="" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title">${login}</h5>
+        <p class="card-text">Last commit: ${date}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Type: ${type}</li>
+        <li class="list-group-item">Repo: ${repoName}</li>
+        <li class="list-group-item">Commit: "${message}"</li>
+    </ul>
+    `
 }
 
 // API call to fetch github data
@@ -36,3 +57,5 @@ async function fetchGithub(username){
     }
 }
 fetchGithub(username);
+
+     
