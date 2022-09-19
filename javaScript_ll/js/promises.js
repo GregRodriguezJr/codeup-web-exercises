@@ -16,9 +16,9 @@ let username = "shivasamadhi"
 // }
 // fetchGithub(username);
 
+// Function to render HTML to the DOM
 const renderHtml = (dataObj, date) => {
-    const { type,payload: {commits: [{message}]}, repo: {name : repoName} } = dataObj;
-    console.log(type, message, repoName, date);
+    const { type,payload: {commits: [{message}]}, repo: {name : repoName}, actor: {avatar_url: img} } = dataObj;
 }
 
 // API call to fetch github data
