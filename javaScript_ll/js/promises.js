@@ -1,6 +1,7 @@
 const cardEl = document.getElementById('card-container');
 const inputBtn = document.getElementById('input-btn');
 const inputText = document.querySelector('.form-control');
+const errorMsgEl = document.getElementById('error-msg')
 
 // API call to fetch github data
 // const fetchGithub = (username) => {
@@ -56,13 +57,14 @@ async function fetchGithub(username){
         const response = await fetch(url, { headers: {'Authorization': GITHUB_API_TOKEN} });
         const data = await response.json();
         const date = data[0].created_at;
-        console.log(data);
         // Format date to day/month/year
         const formatedDate = `${date.substring(5,7)}/${date.substring(8,10)}/${date.substring(0,4)}`;
         renderHtml(data[0], formatedDate);
         inputText.value = '';
+        errorMsgEl.innerHTML = '';
     } catch (error) {
         console.log(error);
+        errorMsgEl.innerHTML = `<h5>Error...please enter valid username</h5>`
     }
 }
 
